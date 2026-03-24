@@ -359,15 +359,58 @@ function TerminalLine({ text }) {
 
 function ProjectPreview({ color, image }) {
   const [hovered, setHovered] = useState(false);
-  if (image) {
-    return (
-      <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-        style={{ width: "100%", height: 180, borderRadius: "8px 8px 0 0", overflow: "hidden", position: "relative", borderBottom: `1px solid ${GRUVBOX.bg2}` }}>
-        <img src={image} alt="project preview" style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.4s ease", transform: hovered ? "scale(1.05)" : "scale(1)" }} />
-        <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${GRUVBOX.bg0_h}90 0%, transparent 40%)`, pointerEvents: "none" }} />
-      </div>
-    );
-  }
+	if (image) {
+	    const isVideo = image.endsWith('.mp4') || image.endsWith('.webm');
+	    return (
+	      <div
+		onMouseEnter={() => setHovered(true)}
+		onMouseLeave={() => setHovered(false)}
+		style={{
+		  width: "100%",
+		  height: 180,
+		  borderRadius: "8px 8px 0 0",
+		  overflow: "hidden",
+		  position: "relative",
+		  borderBottom: `1px solid ${GRUVBOX.bg2}`,
+		}}
+	      >
+		{isVideo ? (
+		  <video
+		    src={image}
+		    autoPlay
+		    muted
+		    loop
+		    playsInline
+		    style={{
+		      width: "100%",
+		      height: "100%",
+		      objectFit: "cover",
+		      transition: "transform 0.4s ease",
+		      transform: hovered ? "scale(1.05)" : "scale(1)",
+		    }}
+		  />
+		) : (
+		  <img
+		    src={image}
+		    alt="project preview"
+		    style={{
+		      width: "100%",
+		      height: "100%",
+		      objectFit: "cover",
+		      transition: "transform 0.4s ease",
+		      transform: hovered ? "scale(1.05)" : "scale(1)",
+		    }}
+		  />
+		)}
+		<div style={{
+		  position: "absolute",
+		  inset: 0,
+		  background: `linear-gradient(to top, ${GRUVBOX.bg0_h}90 0%, transparent 40%)`,
+		  pointerEvents: "none",
+		}} />
+	      </div>
+	    );
+	  }
   return (
     <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       style={{ width: "100%", height: 160, background: `linear-gradient(135deg, ${GRUVBOX.bg0_h} 0%, ${color}08 100%)`, borderRadius: "8px 8px 0 0", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden", borderBottom: `1px solid ${GRUVBOX.bg2}` }}>
@@ -381,7 +424,7 @@ function ProjectPreview({ color, image }) {
 }
 
 const PROJECTS_DATA = [
-  { name: "Dead Route", desc: "A zombie survival roguelite where every choice scars you — literally. 19 interconnected game systems, 13 unique NPCs, CI/CD pipeline, Docker support, and a full test suite.", tech: ["Python", "Docker", "GitHub Actions", "SQLite", "Make"], link: "https://github.com/lixeron/Dead_Route", color: GRUVBOX.red, image: null },
+  { name: "Dead Route", desc: "A zombie survival roguelite where every choice scars you — literally. 19 interconnected game systems, 13 unique NPCs, CI/CD pipeline, Docker support, and a full test suite.", tech: ["Python", "Docker", "GitHub Actions", "SQLite", "Make"], link: "https://github.com/lixeron/Dead_Route", color: GRUVBOX.red, image: "/previews/dead_route.mp4" },
   { name: "Azure Cloud Honeypot & SOC Lab", desc: "Deployed a vulnerable Windows VM honeypot in Azure to attract real-world attacks. Built KQL queries for geolocation analysis and visualized global attack patterns via Workbooks.", tech: ["Azure", "Sentinel", "KQL", "PowerShell", "Log Analytics"], link: "#", color: GRUVBOX.blue, image: null },
   { name: "SEE-GPT", desc: "A phishing simulation platform that uses GPT to auto-generate realistic social engineering emails, tracks user responses, and provides real-time AI-powered security awareness feedback.", tech: ["Python", "Flask", "OpenAI API", "Chart.js", "SMTP"], link: "https://github.com/lixeron/SEE_GPT", color: GRUVBOX.orange, image: null },
   { name: "ARTO — Spam Call Blocker", desc: "Android app that detects and blocks scam calls/SMS using cloud-based AI analysis. Features a privacy-first pipeline with local PII sanitization and zero data retention.", tech: ["Kotlin", "Android", "Supabase", "Claude AI"], link: "https://github.com/SoleP12/Stark-Industries-CS-420", color: GRUVBOX.green, image: null },
