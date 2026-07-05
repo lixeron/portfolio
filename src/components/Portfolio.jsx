@@ -63,7 +63,8 @@ const PROJECTS = {
       year: "2025-2026",
       link: "https://github.com/lixeron/Project_Specter",
       video: "/previews/specter.mp4",
-      color: "var(--ember-color)"
+      color: "var(--ember-color)",
+      status: "done"
     },
     {
       id: "traffic-drone",
@@ -76,7 +77,8 @@ const PROJECTS = {
       year: "2024",
       link: "https://github.com/SoleP12/Stark-Industries-CS-420",
       video: "/previews/drone.mp4",
-      color: "var(--ember-color)"
+      color: "var(--ember-color)",
+      status: "done"
     },
     {
       id: "trackly",
@@ -89,7 +91,8 @@ const PROJECTS = {
       year: "2025",
       link: "https://github.com/lixeron/trackly",
       video: null,
-      color: "var(--brass-color)"
+      color: "var(--brass-color)",
+      status: "wip"
     },
     {
       id: "prism",
@@ -102,7 +105,8 @@ const PROJECTS = {
       year: "2026",
       link: "https://github.com/lixeron/prism",
       video: null,
-      color: "var(--brass-color)"
+      color: "var(--brass-color)",
+      status: "done"
     },
     {
       id: "vealthy",
@@ -115,7 +119,8 @@ const PROJECTS = {
       year: "2025-2026",
       link: "https://github.com/astoylo/vealthy",
       video: null,
-      color: "var(--brass-color)"
+      color: "var(--brass-color)",
+      status: "wip"
     }
   ],
   games: [
@@ -130,7 +135,8 @@ const PROJECTS = {
       year: "2024",
       link: "https://github.com/lixeron/Dead_Route",
       video: "/previews/dead_route.mp4",
-      color: "var(--ember-color)"
+      color: "var(--ember-color)",
+      status: "done"
     },
     {
       id: "aevum",
@@ -143,7 +149,8 @@ const PROJECTS = {
       year: "2025-2026",
       link: "https://github.com/lixeron",
       video: "/previews/aevum.mp4",
-      color: "var(--brass-color)"
+      color: "var(--brass-color)",
+      status: "wip"
     }
   ],
   it: [
@@ -157,8 +164,9 @@ const PROJECTS = {
       role: "Security Administrator",
       year: "2025",
       link: "https://github.com/lixeron/Honeypot-SOC-Azure-Lab",
-      video: "/previews/soc_lab.mp4",
-      color: "var(--ember-color)"
+      video: null,
+      color: "var(--ember-color)",
+      status: "wip"
     },
     {
       id: "wireshark-ctf",
@@ -170,8 +178,9 @@ const PROJECTS = {
       role: "Challenge Creator",
       year: "2024",
       link: "https://github.com/lixeron/Wireshark-CTF-Beginner-Challenge",
-      video: null,
-      color: "var(--brass-color)"
+      video: "/previews/wireshark.mp4",
+      color: "var(--brass-color)",
+      status: "done"
     }
   ],
   shopify: [
@@ -185,8 +194,11 @@ const PROJECTS = {
       role: "Lead Architect // Solo Creator",
       year: "2025-2026",
       link: "https://github.com/lixeron",
+      liveLink: "https://anvilextension.netlify.app/",
+      appLink: "https://apps.shopify.com/anvil-1?locale=zh-TW",
       video: "/previews/anvil.mp4",
-      color: "var(--brass-color)"
+      color: "var(--brass-color)",
+      status: "done"
     }
   ]
 };
@@ -812,18 +824,31 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                       }}>
                         {project.year}
                       </span>
-                      <span style={{
-                        fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: "9px",
-                        padding: "2px 6px",
-                        border: `1px solid ${project.color}50`,
-                        color: project.color,
-                        borderRadius: "4px",
-                        fontWeight: 600,
-                        textTransform: "uppercase"
-                      }}>
-                        {project.id === "dead-route" || project.id === "aevum" ? "game" : project.id === "anvil" ? "shopify" : "dev"}
-                      </span>
+                      {project.status === "done" ? (
+                        <span style={{
+                          fontFamily: "'JetBrains Mono', monospace",
+                          fontSize: "12px",
+                          fontWeight: 700,
+                          color: "#3E4E35",
+                          border: "1px solid #3E4E3550",
+                          padding: "2px 6px",
+                          borderRadius: "4px",
+                        }}>
+                          ✔
+                        </span>
+                      ) : (
+                        <span style={{
+                          fontFamily: "'JetBrains Mono', monospace",
+                          fontSize: "12px",
+                          fontWeight: 700,
+                          color: "#B58A2E",
+                          border: "1px solid #B58A2E50",
+                          padding: "2px 6px",
+                          borderRadius: "4px",
+                        }}>
+                          ...
+                        </span>
+                      )}
                     </div>
 
                     <h3 style={{
@@ -1504,28 +1529,76 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                   </h2>
                 </div>
                 
-                {selectedProject.link && (
-                  <a 
-                    href={selectedProject.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      backgroundColor: "var(--brass-color)",
-                      color: "var(--bg-color)",
-                      padding: "8px 18px",
-                      borderRadius: "6px",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      textDecoration: "none",
-                      fontFamily: "'JetBrains Mono', monospace"
-                    }}
-                  >
-                    REPOSITORY <ExternalLink size={12} />
-                  </a>
-                )}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
+                  {selectedProject.link && (
+                    <a 
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        backgroundColor: "var(--brass-color)",
+                        color: "var(--bg-color)",
+                        padding: "8px 18px",
+                        borderRadius: "6px",
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        fontFamily: "'JetBrains Mono', monospace"
+                      }}
+                    >
+                      REPOSITORY <ExternalLink size={12} />
+                    </a>
+                  )}
+
+                  {selectedProject.liveLink && (
+                    <a 
+                      href={selectedProject.liveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        backgroundColor: "var(--brass-color)",
+                        color: "var(--bg-color)",
+                        padding: "8px 18px",
+                        borderRadius: "6px",
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        fontFamily: "'JetBrains Mono', monospace"
+                      }}
+                    >
+                      LIVE DEMO <ExternalLink size={12} />
+                    </a>
+                  )}
+
+                  {selectedProject.appLink && (
+                    <a 
+                      href={selectedProject.appLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        backgroundColor: "var(--brass-color)",
+                        color: "var(--bg-color)",
+                        padding: "8px 18px",
+                        borderRadius: "6px",
+                        fontSize: "13px",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        fontFamily: "'JetBrains Mono', monospace"
+                      }}
+                    >
+                      SHOPIFY STORE <ExternalLink size={12} />
+                    </a>
+                  )}
+                </div>
               </div>
 
               <p style={{
