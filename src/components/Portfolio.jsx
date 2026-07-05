@@ -450,6 +450,117 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
       zIndex: 2,
       paddingBottom: "80px",
     }}>
+      <style>{`
+        .nav-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 16px 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          transition: padding 0.3s ease;
+        }
+        .nav-left {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+        .nav-right {
+          display: flex;
+          align-items: center;
+          gap: 28px;
+        }
+        .nav-links {
+          display: flex;
+          gap: 24px;
+        }
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 48px;
+          align-items: start;
+        }
+        .experience-timeline {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          position: relative;
+          padding-left: 32px;
+          border-left: 2px solid var(--line-color);
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        .experience-card {
+          background-color: var(--card-color);
+          border: 1px solid var(--line-color);
+          border-radius: 8px;
+          padding: 28px;
+        }
+        .experience-marker {
+          position: absolute;
+          left: -42px;
+          top: 6px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background-color: var(--bg-color);
+          border: 3px solid var(--brass-color);
+        }
+        .view-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 120px 24px 0 24px;
+        }
+
+        @media (max-width: 768px) {
+          .nav-container {
+            flex-direction: column !important;
+            padding: 12px 16px !important;
+            gap: 12px !important;
+          }
+          .nav-left {
+            width: 100%;
+            justify-content: space-between !important;
+          }
+          .nav-right {
+            width: 100%;
+            justify-content: space-between !important;
+            gap: 12px !important;
+            border-top: 1px solid var(--line-color);
+            padding-top: 10px;
+          }
+          .nav-links {
+            flex: 1;
+            justify-content: space-around !important;
+            gap: 8px !important;
+          }
+          .nav-links button {
+            font-size: 14px !important;
+            padding: 2px 0 !important;
+          }
+          .about-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .experience-timeline {
+            padding-left: 24px !important;
+            gap: 24px !important;
+          }
+          .experience-card {
+            padding: 18px !important;
+          }
+          .experience-marker {
+            left: -32px !important;
+            width: 14px !important;
+            height: 14px !important;
+            border-width: 2px !important;
+          }
+          .view-content {
+            padding: 160px 16px 0 16px !important;
+          }
+        }
+      `}</style>
       
       {/* Top Navigation Header - Translucent theme background */}
       <header style={{
@@ -463,16 +574,9 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
         borderBottom: "1px solid var(--line-color)",
         transition: "background-color 0.3s ease",
       }}>
-        <div style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "16px 24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}>
+        <div className="nav-container">
           {/* Logo / Title & Console back button positioned correctly: button on LEFT */}
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div className="nav-left">
             <button 
               onClick={onBackToTerminal}
               style={{
@@ -512,8 +616,8 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
           </div>
 
           {/* Navigation Links & Theme Toggle */}
-          <div style={{ display: "flex", alignItems: "center", gap: "28px" }}>
-            <nav style={{ display: "flex", gap: "24px" }}>
+          <div className="nav-right">
+            <nav className="nav-links">
               {[
                 { id: "projects", label: "Projects" },
                 { id: "about", label: "About" },
@@ -583,11 +687,7 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
       </header>
 
       {/* Main Page Layout Container */}
-      <main style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
-        padding: "120px 24px 0 24px",
-      }} className="view-content">
+      <main className="view-content">
         
         {/* ======================================================== */}
         {/* PROJECTS TAB VIEW */}
@@ -815,12 +915,7 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
               </h1>
             </div>
 
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "1.2fr 1fr",
-              gap: "48px",
-              alignItems: "start",
-            }}>
+            <div className="about-grid">
               {/* Left Column: Bio */}
               <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                 <p style={{
@@ -971,35 +1066,12 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
               </h1>
             </div>
 
-            <div style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "32px",
-              position: "relative",
-              paddingLeft: "32px",
-              borderLeft: "2px solid var(--line-color)",
-              maxWidth: "800px",
-              margin: "0 auto",
-            }}>
+            <div className="experience-timeline">
               {EXPERIENCE.map((exp, idx) => (
                 <div key={idx} style={{ position: "relative", marginBottom: "16px" }}>
-                  <div style={{
-                    position: "absolute",
-                    left: "-42px",
-                    top: "6px",
-                    width: "18px",
-                    height: "18px",
-                    borderRadius: "50%",
-                    backgroundColor: "var(--bg-color)",
-                    border: "3px solid var(--brass-color)",
-                  }} />
+                  <div className="experience-marker" />
 
-                  <div style={{
-                    backgroundColor: "var(--card-color)",
-                    border: "1px solid var(--line-color)",
-                    borderRadius: "8px",
-                    padding: "28px",
-                  }}>
+                  <div className="experience-card">
                     <div style={{
                       display: "flex",
                       justifyContent: "space-between",
