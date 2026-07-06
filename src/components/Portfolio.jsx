@@ -935,21 +935,21 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                   color: "var(--ink-color)",
                   fontFamily: "'Playfair Display', serif",
                 }}>
-                  I'm a Computer Science Senior at the University of Alabama at Birmingham (UAB), passionate about IT support workflows, software development, and scripting automated solutions.
+                  I'm a Computer Science senior at the University of Alabama at Birmingham (UAB). Most of my time goes into software development, IT support, and building products under my solo studio, Astoylo, and I care most about shipping things that actually work and hold up over time.
                 </p>
                 <p style={{
                   fontSize: "15px",
                   lineHeight: "1.7",
                   color: "var(--sub-color)",
                 }}>
-                  My approach is grounded in building stable, clean structures. I love Linux environments, command line ricing, and tweaking systems to operate exactly to my preferences.
+                  I'm someone who is always learning. I don't think of myself as a master of any single tool, I just keep leveling up on whatever the current project needs. I daily drive a dual boot setup, Windows 11 alongside Fedora Linux on KDE Plasma, and I run both on purpose: partly to keep learning each one, partly because I love ricing my Linux desktop until it behaves exactly how I want.
                 </p>
                 <p style={{
                   fontSize: "15px",
                   lineHeight: "1.7",
                   color: "var(--sub-color)",
                 }}>
-                  I'm always looking to expand my engineering scope, whether it's setting up local networks, building interactive web apps, or managing databases.
+                  When I burn out on the main work, I drift over to my game projects. They are the fun outlet that keeps me building, and a surprising amount of what I pick up there ends up feeding back into the serious stuff.
                 </p>
               </div>
 
@@ -983,8 +983,9 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                     <span style={{
                       fontFamily: "'JetBrains Mono', monospace",
                       fontSize: "11px",
-                      backgroundColor: "var(--brass-soft)",
-                      color: "var(--brass-color)",
+                      backgroundColor: "transparent",
+                      border: "1px solid var(--line-color)",
+                      color: "var(--sub-color)",
                       padding: "2px 8px",
                       borderRadius: "4px",
                       fontWeight: 600,
@@ -994,8 +995,9 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                     <span style={{
                       fontFamily: "'JetBrains Mono', monospace",
                       fontSize: "11px",
-                      backgroundColor: "var(--ember-soft)",
-                      color: "var(--ember-color)",
+                      backgroundColor: "transparent",
+                      border: "1px solid var(--line-color)",
+                      color: "var(--sub-color)",
                       padding: "2px 8px",
                       borderRadius: "4px",
                       fontWeight: 600,
@@ -1008,7 +1010,7 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                     <div style={{ display: "flex", gap: "12px" }}>
                       <Award size={16} style={{ color: "var(--brass-color)", flexShrink: 0, marginTop: "2px" }} />
                       <span style={{ fontSize: "13px", color: "var(--sub-color)" }}>
-                        <strong>Accelerated M.S. Cybersecurity Track</strong>: Taking advanced master's level modules early to bridge software development with offensive/defensive operations.
+                        <strong>Accelerated M.S. Cybersecurity Pathway</strong>: An early-entry program that lets me take graduate level cybersecurity courses as an undergrad, as long as I keep my GPA above a 3.5, so I get a head start on the master's before I finish the B.A.
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: "12px" }}>
@@ -1029,9 +1031,13 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", color: "var(--sub-color)" }}>
                     <TermIcon size={16} />
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", fontWeight: 600 }}>CORE SYSTEMS &amp; TECH</span>
+                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "11px", fontWeight: 600 }}>ALWAYS LEARNING</span>
                   </div>
-                  
+
+                  <p style={{ fontSize: "13px", lineHeight: "1.6", color: "var(--sub-color)", marginBottom: "18px" }}>
+                    Tools I work in and keep getting better at. I'm not claiming mastery of any of these, I'm always learning.
+                  </p>
+
                   <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
                     <div>
                       <span style={{ fontSize: "11px", fontFamily: "'JetBrains Mono', monospace", color: "var(--brass-color)", display: "block", marginBottom: "4px" }}>LANGUAGES</span>
@@ -1039,7 +1045,7 @@ export default function Portfolio({ activeTab, onTabChange, onBackToTerminal, th
                     </div>
                     <div>
                       <span style={{ fontSize: "11px", fontFamily: "'JetBrains Mono', monospace", color: "var(--brass-color)", display: "block", marginBottom: "4px" }}>INFRASTRUCTURE &amp; IT</span>
-                      <span style={{ fontSize: "14px", color: "var(--sub-color)" }}>Linux (Fedora/Ubuntu), Active Directory, Windows Software Center, Networking, ServiceNow</span>
+                      <span style={{ fontSize: "14px", color: "var(--sub-color)" }}>Windows 11 and Fedora Linux (KDE Plasma) dual-boot, Active Directory, Windows Software Center, Networking, ServiceNow</span>
                     </div>
                   </div>
                 </div>

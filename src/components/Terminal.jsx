@@ -203,7 +203,7 @@ function buildNeofetchLines(visitorOS, asciiChoice) {
   result.push("");
   result.push(`  \x1b[green]lixeron\x1b[fg4]@\x1b[blue]fedora\x1b[reset]`);
   result.push(`  \x1b[green]---------------\x1b[reset]`);
-  result.push(`  \x1b[green]OS:\x1b[reset] Fedora Workstation 43`);
+  result.push(`  \x1b[green]OS:\x1b[reset] Fedora Linux 43 (KDE Plasma)`);
   result.push(`  \x1b[green]Host:\x1b[reset] Ethan Tran`);
   result.push(`  \x1b[green]Role:\x1b[reset] CS Senior`);
   result.push(`  \x1b[green]Shell:\x1b[reset] bash 5.2`);
@@ -221,7 +221,8 @@ const FILES = {
   Name:     Ethan Tran
   School:   University of Alabama at Birmingham
   Major:    B.A. Computer Science (Minor: Social Psych & Info Systems)
-  Grad:     Accelerated M.S. Cybersecurity Track
+  Grad:     Dec 2026 (B.A. Computer Science)
+  Track:    Accelerated M.S. Cybersecurity pathway (grad courses taken as an undergrad)
   Honors:   Honors College, Tri-Alpha Honor Society
   Interests: DevOps, Cloud Infrastructure, Cybersecurity
   Learning: GoLang, AWS, Docker, Azure
