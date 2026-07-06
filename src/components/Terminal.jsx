@@ -236,12 +236,15 @@ const FILES = {
 };
 
 const PROJECTS_LIST = `
-  \x1b[green]dead_route/\x1b[reset]      Zombie survival roguelite — Python, Docker, CI/CD
-  \x1b[green]see_gpt/\x1b[reset]         Phishing simulation engine — Flask, OpenAI, Chart.js
-  \x1b[green]arto/\x1b[reset]            Spam call blocker — Android, Kotlin, Supabase, AI
-  \x1b[green]honeypot/\x1b[reset]        Azure Cloud SOC lab — Sentinel, KQL, Powershell
-  \x1b[green]traffic_drone/\x1b[reset]   YOLOv8 vehicle detection — Python, DJI Tello SDK
-  \x1b[green]wireshark_ctf/\x1b[reset]   ICMP packet CTF challenge — Python, Networking
+  \x1b[green]specter/\x1b[reset]        Open-core adversary simulation, Python, FastAPI, React
+  \x1b[green]prism/\x1b[reset]          AI content repurposing engine, FastAPI, React, Gemini 2.5
+  \x1b[green]vealthy/\x1b[reset]        Voice-first Android cooking app, Kotlin, Jetpack Compose
+  \x1b[green]trackly/\x1b[reset]        Birmingham rail crossing tracker, FastAPI, React, PostGIS
+  \x1b[green]dead_route/\x1b[reset]     Terminal zombie survival roguelite, Python, Docker, CI/CD
+  \x1b[green]aevum/\x1b[reset]          Dynastic life sim, React Native, Expo, TypeScript
+  \x1b[green]anvil/\x1b[reset]          Shopify product options app, TypeScript, Shopify API
+  \x1b[green]traffic_drone/\x1b[reset]  YOLOv8 vehicle detection, Python, DJI Tello SDK
+  \x1b[green]wireshark_ctf/\x1b[reset]  ICMP packet CTF challenge, Python, Networking
 `;
 
 function parseTerminalText(text, colors) {
